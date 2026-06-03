@@ -7,6 +7,7 @@
 - **Quartz v5**：使用社区插件体系（`quartz-community/*`）
 - **Obsidian 友好**：支持 Obsidian 风格 Markdown、双向链接、图谱、搜索等
 - **即用配置**：`quartz.config.yaml` 已包含常用插件与布局
+- **全宽表格**：已预装 [full-width-tables](https://github.com/quartz-lib/full-width-tables)，宽表格可突破正文栏宽度
 - **一键部署**：推送到 `master` 分支即通过 GitHub Actions 构建并发布到 Pages
 
 ## 快速开始
@@ -75,6 +76,16 @@ npx quartz build
 ├── .github/workflows/    # GitHub Pages 部署
 └── quartz/               # Quartz 核心（一般无需修改）
 ```
+
+## 预装扩展
+
+本模板已添加第三方插件 **full-width-tables**（配置见 `quartz.config.yaml`，版本锁定于 `quartz.lock.json`）。安装命令为：
+
+```bash
+npx quartz plugin add github:quartz-lib/full-width-tables
+```
+
+克隆或 Fork 后无需重复执行；`npx quartz plugin install` 会按 lock 文件拉取该插件。若从零搭建同类站点，可手动运行上述命令添加。
 
 ## 自定义
 
