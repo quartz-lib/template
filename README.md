@@ -8,6 +8,7 @@
 - **Obsidian 友好**：支持 Obsidian 风格 Markdown、双向链接、图谱、搜索等
 - **即用配置**：`quartz.config.yaml` 已包含常用插件与布局
 - **全宽表格**：已预装 [full-width-tables](https://github.com/quartz-lib/full-width-tables)，宽表格可突破正文栏宽度
+- **子目录索引页**：已预装 [index-content-page](https://github.com/quartz-lib/index-content-page)，子目录 `index.md` 按普通内容页渲染（含 TOC），不追加文件列表
 - **一键部署**：推送到 `master` 分支即通过 GitHub Actions 构建并发布到 Pages
 
 ## 快速开始
@@ -79,13 +80,14 @@ npx quartz build
 
 ## 预装扩展
 
-本模板已添加第三方插件 **full-width-tables**（配置见 `quartz.config.yaml`，版本锁定于 `quartz.lock.json`）。安装命令为：
+本模板已添加以下第三方插件（配置见 `quartz.config.yaml`，版本锁定于 `quartz.lock.json`）：
 
-```bash
-npx quartz plugin add github:quartz-lib/full-width-tables
-```
+| 插件 | 说明 | 安装命令 |
+|------|------|----------|
+| [full-width-tables](https://github.com/quartz-lib/full-width-tables) | 宽表格可突破正文栏宽度 | `npx quartz plugin add github:quartz-lib/full-width-tables` |
+| [index-content-page](https://github.com/quartz-lib/index-content-page) | 子目录 `index.md` 按 Content 页渲染，不追加文件列表 | `npx quartz plugin add github:quartz-lib/index-content-page` |
 
-克隆或 Fork 后无需重复执行；`npx quartz plugin install` 会按 lock 文件拉取该插件。若从零搭建同类站点，可手动运行上述命令添加。
+克隆或 Fork 后无需重复执行；`npx quartz plugin install` 会按 lock 文件拉取上述插件。若从零搭建同类站点，可手动运行对应命令添加。
 
 ## 自定义
 
