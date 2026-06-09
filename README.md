@@ -9,6 +9,7 @@
 - **即用配置**：`quartz.config.yaml` 已包含常用插件与布局
 - **全宽表格**：已预装 [full-width-tables](https://github.com/quartz-lib/full-width-tables)，宽表格可突破正文栏宽度
 - **子目录索引页**：已预装 [index-content-page](https://github.com/quartz-lib/index-content-page)，子目录 `index.md` 按普通内容页渲染（含 TOC），不追加文件列表
+- **Explorer 自定义排序**：已预装 [sort-by-order](https://github.com/quartz-lib/sort-by-order)，侧边栏按 frontmatter `order` 字段排序，文件夹优先
 - **一键部署**：推送到 `master` 分支即通过 GitHub Actions 构建并发布到 Pages
 
 ## 快速开始
@@ -86,6 +87,7 @@ npx quartz build
 |------|------|----------|
 | [full-width-tables](https://github.com/quartz-lib/full-width-tables) | 宽表格可突破正文栏宽度 | `npx quartz plugin add github:quartz-lib/full-width-tables` |
 | [index-content-page](https://github.com/quartz-lib/index-content-page) | 子目录 `index.md` 按 Content 页渲染，不追加文件列表 | `npx quartz plugin add github:quartz-lib/index-content-page` |
+| [sort-by-order](https://github.com/quartz-lib/sort-by-order) | Explorer 按 frontmatter `order` 排序，未设置项排在末尾 | `npx quartz plugin add github:quartz-lib/sort-by-order` |
 
 克隆或 Fork 后无需重复执行；`npx quartz plugin install` 会按 lock 文件拉取上述插件。若从零搭建同类站点，可手动运行对应命令添加。
 

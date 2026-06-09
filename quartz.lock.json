@@ -223,6 +223,12 @@
       "commit": "e0ebef9f80b23a015a9252d4ab98b889b08dc8b7",
       "installedAt": "2026-05-24T15:36:17.442Z"
     },
+    "sort-by-order": {
+      "source": "github:quartz-lib/sort-by-order",
+      "resolved": "https://github.com/quartz-lib/sort-by-order.git",
+      "commit": "363a3387bf2b081162ad3933bfefea07c9842ae6",
+      "installedAt": "2026-06-09T07:51:24.688Z"
+    },
     "spacer": {
       "source": "github:quartz-community/spacer",
       "resolved": "https://github.com/quartz-community/spacer.git",
