@@ -6,16 +6,33 @@
 
 - `content/`：站点的 Markdown 内容。
 - `site.yaml`：站点标题、域名、页脚链接等差异配置。
+- `scripts/init-blog.mjs`：把模板一键初始化为新博客项目的交互式脚本。
 - `.github/workflows/deploy-pages.yaml`：通过 GitHub Actions 构建并部署到 GitHub Pages。
 
-## 使用方式
+## 初始化新博客
 
-1. 使用这个模板创建新的内容仓库。
+克隆或使用这个模板创建新仓库后，运行：
+
+```sh
+node scripts/init-blog.mjs
+```
+
+脚本会通过问答形式写入以下信息：
+
+- 站点标题。
+- GitHub 用户名或组织名。
+- 新仓库名。
+- 部署分支。
+
+脚本会自动根据用户名和仓库名生成 GitHub Pages 域名与仓库地址，并只更新 `site.yaml` 和 `.github/workflows/deploy-pages.yaml`。直接回车会使用默认值。
+
+## 日常使用
+
+1. 在 `content/` 中编写 Markdown 内容。
 2. 修改 `site.yaml`：
    - `configuration.pageTitle`：站点标题。
    - `configuration.baseUrl`：站点域名，不要包含 `https://` 或结尾 `/`。例如 `owner.github.io/repo`。
    - `footerLinks.GitHub`：当前内容仓库地址。
-3. 在 `content/` 中编写 Markdown 内容。
-4. 在仓库 Settings -> Pages 中，将 Source 设置为 GitHub Actions。
+3. 在仓库 Settings -> Pages 中，将 Source 设置为 GitHub Actions。
 
-推送到 `master` 分支后，workflow 会调用 `quartz-lib/factory` 中的可复用构建流程生成并部署站点。
+推送到 workflow 中配置的部署分支后，workflow 会调用 `quartz-lib/factory` 中的可复用构建流程生成并部署站点。
