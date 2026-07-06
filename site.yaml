@@ -1,0 +1,6 @@
+configuration:
+  pageTitle: 我的 Quartz 站点
+  baseUrl: owner.github.io/repo
+
+footerLinks:
+  GitHub: https://github.com/owner/repo
