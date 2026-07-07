@@ -66,6 +66,11 @@ async function askRequired(label, defaultValue = "") {
   }
 }
 
+function baseUrlDefault(currentBaseUrl, fallbackBaseUrl) {
+  if (!currentBaseUrl || currentBaseUrl === "example.com") return fallbackBaseUrl
+  return currentBaseUrl
+}
+
 function createSiteYaml({ title, baseUrl, githubUrl }) {
   return `configuration:
   pageTitle: ${yamlQuote(title)}
@@ -107,6 +112,7 @@ async function main() {
   ])
 
   const currentTitle = textBetween(siteYaml, /pageTitle:\s*["']?([^"'\n]+)["']?/, "我的 Quartz 站点")
+  const currentBaseUrl = textBetween(siteYaml, /baseUrl:\s*["']?([^"'\n]+)["']?/, "example.com")
   const currentGitHubUrl = textBetween(siteYaml, /GitHub:\s*["']?([^"'\n]+)["']?/, "")
   const currentBranch = textBetween(workflowYaml, /branches:\s*\n\s*-\s*([^\s]+)/, "master")
   const currentFactoryRepository = textBetween(
@@ -123,8 +129,12 @@ async function main() {
   const title = await askRequired("站点标题", currentTitle)
   const owner = await askRequired("GitHub 用户名或组织名", parsedGitHubUrl.owner || "owner")
   const repo = await askRequired("新仓库名", parsedGitHubUrl.repo || path.basename(rootDir))
+  const fallbackBaseUrl = defaultBaseUrl(owner, repo)
+  const baseUrl = await askRequired(
+    "站点域名（没有自定义域名时直接回车使用仓库地址，不要包含 https:// 或结尾 /）",
+    baseUrlDefault(currentBaseUrl, fallbackBaseUrl),
+  )
   const branch = await askRequired("部署分支", currentBranch)
-  const baseUrl = defaultBaseUrl(owner, repo)
   const githubUrl = `https://github.com/${owner}/${repo}`
 
   console.log("\n即将写入以下配置：")

@@ -1,6 +1,6 @@
 configuration:
   pageTitle: 我的 Quartz 站点
-  baseUrl: owner.github.io/repo
+  baseUrl: quartz-lib.github.io/template
 
 footerLinks:
-  GitHub: https://github.com/owner/repo
+  GitHub: https://github.com/quartz-lib/template

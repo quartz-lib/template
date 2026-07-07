@@ -22,16 +22,17 @@ node scripts/init-blog.mjs
 - 站点标题。
 - GitHub 用户名或组织名。
 - 新仓库名。
+- 站点域名，或直接使用 GitHub Pages 仓库地址。
 - 部署分支。
 
-脚本会自动根据用户名和仓库名生成 GitHub Pages 域名与仓库地址，并只更新 `site.yaml` 和 `.github/workflows/deploy-pages.yaml`。直接回车会使用默认值。
+脚本会根据用户名和仓库名生成仓库地址。站点域名可以填写自定义域名；如果没有自定义域名，直接回车会使用 GitHub Pages 仓库地址。脚本只更新 `site.yaml` 和 `.github/workflows/deploy-pages.yaml`。
 
 ## 日常使用
 
 1. 在 `content/` 中编写 Markdown 内容。
 2. 修改 `site.yaml`：
    - `configuration.pageTitle`：站点标题。
-   - `configuration.baseUrl`：站点域名，不要包含 `https://` 或结尾 `/`。例如 `owner.github.io/repo`。
+   - `configuration.baseUrl`：站点地址，不要包含 `https://` 或结尾 `/`。有自定义域名时填 `example.com`，没有时填 `owner.github.io/repo`。
    - `footerLinks.GitHub`：当前内容仓库地址。
 3. 在仓库 Settings -> Pages 中，将 Source 设置为 GitHub Actions。
 
